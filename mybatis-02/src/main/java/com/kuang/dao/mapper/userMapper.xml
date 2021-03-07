@@ -14,29 +14,10 @@
         where id = #{id}
     </select>
 
-    <select id="getUserById2" parameterType="map" resultType="com.kuang.pojo.User">
-        select *
-        from user
-        where id = #{id}
-          and name = #{name}
-    </select>
-
-    <!-- % 防止sql注入 -->
-    <select id="getUserLikeName" parameterType="String" resultType="com.kuang.pojo.User">
-        select *
-        from user
-        where name like #{value}"%"
-    </select>
-
     <!-- 对象中的属性可以直接去除 -->
     <insert id="addUser" parameterType="com.kuang.pojo.User">
         insert into user(id, name, pwd)
         values (#{id}, #{name}, #{pwd})
-    </insert>
-
-    <insert id="addUser2" parameterType="map">
-        insert into user(id, name, pwd)
-        values (#{userId}, #{userName}, #{userPwd})
     </insert>
 
     <update id="updateUser" parameterType="com.kuang.pojo.User">
