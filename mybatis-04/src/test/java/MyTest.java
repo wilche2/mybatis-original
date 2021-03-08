@@ -2,6 +2,7 @@ import com.kuang.dao.UserMapper;
 import com.kuang.pojo.User;
 import com.kuang.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 
 import java.util.List;
@@ -11,6 +12,8 @@ import java.util.List;
  * @date 2021/3/6
  */
 public class MyTest {
+
+    public static final Logger log = Logger.getLogger(MyTest.class);
 
     @Test
     public void selectUser() {

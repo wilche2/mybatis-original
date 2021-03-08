@@ -10,6 +10,10 @@
      -->
     <properties resource="db.properties"/>
 
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+
     <!-- 配置别名,注意typeAliases与上下配置的顺序 -->
     <!--    <typeAliases>-->
     <!--        <typeAlias type="com.kuang.com.kuang.pojo.User" alias="User"/>-->
