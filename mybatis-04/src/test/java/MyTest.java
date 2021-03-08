@@ -1,8 +1,8 @@
 import com.kuang.dao.UserMapper;
-import org.apache.ibatis.session.SqlSession;
-import org.junit.Test;
 import com.kuang.pojo.User;
 import com.kuang.utils.MybatisUtils;
+import org.apache.ibatis.session.SqlSession;
+import org.junit.Test;
 
 import java.util.List;
 
