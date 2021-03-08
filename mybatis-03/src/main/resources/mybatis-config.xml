@@ -53,7 +53,7 @@
                    1. 需要UserMapper和userMapper.xml在同一个package下面
                    2. 需要UserMapper和userMapper.xml同名，忽略大小写
          -->
-        <!--<mapper class="com.kuang.dao.UserMapper"/>-->
+        <!--<mapper class="com.kuang.com.kuang.dao.UserMapper"/>-->
 
         <!-- 方式三：将包内的映射器接口实现全部注册为映射器 -->
         <!--<package name="com.kuang.com.kuang.dao"/>-->

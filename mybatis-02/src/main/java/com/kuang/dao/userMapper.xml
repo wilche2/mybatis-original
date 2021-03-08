@@ -3,12 +3,14 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kuang.dao.UserMapper">
-    <select id="selectUser" resultType="com.kuang.pojo.User">
+    <!-- 别名typeAlias com.kuang.pojo.User 配置成User  -->
+    <select id="selectUser" resultType="user">
         select *
         from user
     </select>
 
-    <select id="getUserById" parameterType="int" resultType="com.kuang.pojo.User">
+    <!-- _int 表示基本数据类型的别名；int 表示包装类的别名 -->
+    <select id="getUserById" parameterType="_int" resultType="com.kuang.pojo.User">
         select *
         from user
         where id = #{id}
