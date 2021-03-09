@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--
+        注意上下顺序，properties需要在最上面，引入外部配置文件,
+        如果properties配置中还主动配置属性，且字段与引入的字段一致，则优先使用外部的配置文件
+        严格按照如下顺序即可
+     -->
+    <properties resource="db.properties"/>
+
+    <!--<settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>-->
+
+    <!-- 配置别名,注意typeAliases与上下配置的顺序 -->
+    <!--    <typeAliases>-->
+    <!--        <typeAlias type="com.kuang.com.kuang.pojo.User" alias="User"/>-->
+    <!--    </typeAliases>-->
+
+    <!-- 在没有注解的情况下，建议使用首字母小写的非限定类名来作为它的别名，也可使用大写 -->
+    <typeAliases>
+        <package name="com.kuang.pojo"/>
+    </typeAliases>
+
+    <!-- default 如果选择test，则可切换到第二套环境test -->
+    <environments default="test">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://159.75.4.236:3306/mybatis?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8"/>
+                <property name="username" value="test_wilche"/>
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+
+        <environment id="test">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--<mappers>
+        &lt;!&ndash; 方式一：使用相对于类路径的资源引用 &ndash;&gt;
+        <mapper resource="com/kuang/dao/userMapper.xml"/>
+
+        &lt;!&ndash;
+            方式二：使用映射器接口实现类的完全限定类名
+                   1. 需要UserMapper和userMapper.xml在同一个package下面
+                   2. 需要UserMapper和userMapper.xml同名，忽略大小写
+         &ndash;&gt;
+        &lt;!&ndash;<mapper class="com.kuang.com.kuang.dao.UserMapper"/>&ndash;&gt;
+
+        &lt;!&ndash; 方式三：将包内的映射器接口实现全部注册为映射器 &ndash;&gt;
+        &lt;!&ndash;<package name="com.kuang.com.kuang.dao"/>&ndash;&gt;
+    </mappers>-->
+
+    <!-- 绑定接口 -->
+    <mappers>
+        <mapper class="com.kuang.dao.UserMapper"/>
+    </mappers>
+
+</configuration>
