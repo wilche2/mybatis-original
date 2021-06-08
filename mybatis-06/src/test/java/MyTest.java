@@ -6,6 +6,10 @@ import com.kuang.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.List;
 
 /**
@@ -13,6 +17,18 @@ import java.util.List;
  * @date 2021/3/12
  */
 public class MyTest {
+
+    @Test
+    public void test1() {
+        LocalDateTime now = this.getTimeMills1();
+        LocalDateTime of1 = LocalDateTime.of(2021, 6, 8, 18, 46);
+        if (now.isEqual(of1) || now.isBefore(of1)) {
+            System.out.println(true);
+        }
+    }
+    private static LocalDateTime getTimeMills1() {
+        return LocalDateTime.now().withSecond(0).withNano(0);
+    }
 
     @Test
     public void testGetStudents2(){
